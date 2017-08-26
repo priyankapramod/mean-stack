@@ -1,0 +1,76 @@
+<html>
+<head>
+<title></title>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+         $(document). ready(function (){
+            // this triggers the connection event in our server!
+            var socket  = io.connect();
+            // we'll write all the socket stuff after the above line!
+            $( 'button').click(function (){
+                    socket.emit( "button_clicked", {reason:  "because I want to learn about sockets!"});
+                });
+                socket.on( 'server_response', function (data){
+                    console.log( 'The server says: '  + data.response);
+                    });
+
+
+
+            $('#form').submit(function(){
+                socket.emit("posting_form", {reason: {name: $("[name = 'name']").val(), location: $("[name = 'location']").val(),language: $("[name = 'language']").val(), comment: $("[name = 'comment']").val()}})
+                // $.post("/foo", { message: $("input").val() });
+            });
+
+            socket.on( 'server_form_response', function (data){
+                console.log( 'The server says: '  + JSON.stringify(data.response));
+                });
+
+
+
+
+                $('#form').submit(function(){
+                    $.post("/index", { reason: {name: $("[name = 'name']").val(), location: $("[name = 'location']").val(),language: $("[name = 'language']").val(), comment: $("[name = 'comment']").val()}});
+                    // $.post("/foo", { message: $("input").val() });
+                });
+
+                socket.on( 'server_form_response', function (data){
+                    console.log( 'The server says: '  + JSON.stringify(data.response));
+                    });
+
+
+        })
+    </script>
+</head>
+<body>
+    <button>I AM A BUTTON!</button>
+
+
+    
+
+    <!-- web page goes here -->
+    <form id = "form" action = "/index", method="post">
+        Your Name: <input type="text" name="name"><br>
+        Dojo Location:
+        <select name="location">
+            <option name="<Cupertino">Cupertino</option>
+            <option name="Santa Clara">Santa Clara</option>
+            <option name="Milpitas">Milpitas</option>
+            <option name="Fremont">Fremont</option>
+        </select>
+        <br><br>
+        Favourite Language:
+            <select name="language">
+            <option name="Java">Java</option>
+            <option name="Ruby">Ruby</option>
+        </select>
+        <br><br>
+        Comment(optional):<br>
+        <textarea name="comment" rows="10" cols="30"></textarea>
+        <br>
+        <input type="submit" value="submit">
+
+    </form>
+</body>
+</html>
