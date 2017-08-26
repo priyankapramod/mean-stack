@@ -1,0 +1,27 @@
+{
+  "name": "surveyform_express",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log(\"surveyform\")"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyankapramod/mean-stack.git"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "pksivar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyankapramod/mean-stack/issues"
+  },
+  "homepage": "https://github.com/priyankapramod/mean-stack#readme",
+  "dependencies": {
+   "body-parser": "^1.15.0",
+   "ejs": "^2.4.1",
+   "express": "^4.13.4"
+ }
+}
