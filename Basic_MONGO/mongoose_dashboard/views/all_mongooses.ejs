@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dojo Survey Assignment</title>
+    <style>
+           #container{
+               width:1000px;
+               height:970px;
+               margin : 0px auto;
+
+           }
+            #linetwo{
+                padding-left: 40px;
+            }
+    </style>
+</head>
+<body>
+
+
+
+<div id="container">
+    <h2>Here are awesome info about mongooses from database:</h2>
+    <% for (var x in mongooses) { %>
+        <h3 id="lineone"><%= mongooses[x].mongs_name %></h3>
+        <h3 id="linetwo"> --<%= mongooses[x].mongs_info %> %> </h3>
+        <hr>
+    <% } %>
+
+</div>
+
+
+</body>
+</html>

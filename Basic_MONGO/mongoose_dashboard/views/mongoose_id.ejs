@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dojo Survey Assignment</title>
+    <style>
+           #container{
+               width:1000px;
+               height:970px;
+               margin : 0px auto;
+
+           }
+            #linetwo{
+                padding-left: 40px;
+            }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form action = "/mongooses/destroy/<%= mongoose._id %>" method="post">
+            Mongoose name: <input type = "text" name= "mongoose_name" value="<%= mongoose.mongs_name %>"><br>
+            Mongoose info: <input type = "text" name= "mongs_info" value="<%= mongoose.mongs_info %>"><br>
+            <input type="submit" value="Delete from DB">
+
+        </form>
+
+
+        <form action = "/index", method="post">
+            <input type="submit" value="Go to index page">
+        </form>
+
+    </div>
+
+
+
+
+</body>
+</html>
